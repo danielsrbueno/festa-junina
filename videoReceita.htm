@@ -1,0 +1,110 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festa Junina</title>
+    <link rel="stylesheet" href="styleReceita.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="fogueira.png" type="png/x-icon">
+</head>
+<body>
+    <img id="menu"src="menu.png" alt="Icone menu">
+    <nav id="nav" class="ativa">
+        <ul>
+            <a href="home.htm" rel="home"><h1>Início</h1></a>
+        </ul>
+        <img src="seta.png" alt="Icone seta" id="seta">
+        <div id="menuAbas">
+            <a href="index.htm" class="abas">
+                <p>História</p>
+            </a>
+            <a href="comidas.htm" class="abas">
+                <p>Comidas</p>
+            </a>
+            <a href="videoReceita.htm" class="abas">
+                <p>Receita</p>
+            </a>
+        </div>
+        <img id="sound" class="ativo" src="sound.png" alt="Icone sound">
+        <img id="mute" class="des" src="/src/img/mute.png" alt="Icone muted">
+    </nav>
+    <audio id="musica" preload="metadata" autoplay loop>
+        <source src="/src/audio/musicaFestaJunina.mp3" type="audio/mp3">
+        <p>Seu navegador não funfa, troca essa merda ae</p>
+    </audio>
+    <header>
+        <h1><img src="festao.png"  style="height: 40px; margin-bottom: -10px;"> Tudo sobre Festa Junina <img src="milho.png" style="height: 32px; margin-bottom: -7px;"></h1>
+        <p>É sobre Festa Junina? Então você encontra aqui!</p>
+    </header>
+    <main>
+        <section id="receita">
+            <img src="macaDoAmor.png" alt="Imagem de uma maçã do amor" class="img">
+            <h2>Vídeo receita</h2>
+        </section>
+        <section id="video">
+            <h2>Receita Maçã do Amor</h2>
+            <video controls autoplay muted width="460px">
+                <source src="videoReceita.mp4">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tV3Hrz8wynk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <h2>Seu navegador não suporta</h2>
+            </video>
+        </section>
+    </main>
+    <footer>
+        <p>  &copy; Daniel Bueno</p>
+        <p>  &copy; Gustavo Martins</p>
+    </footer>
+
+    <script>
+        var imgMenu = document.getElementById('menu');
+        var nav = document.getElementById('nav');
+        
+        imgMenu.addEventListener('click', function(){
+            if (nav.classList.contains('ativa') == true){
+                nav.removeAttribute('class');
+            }
+            else {
+                nav.setAttribute('class', 'ativa');
+            }
+        }
+        )
+
+        var imgSound = document.getElementById('sound');
+        var imgMute = document.getElementById('mute');
+        var audio = document.getElementById('musica');
+
+        imgSound.addEventListener('click', function(){
+            if(imgSound.classList.contains('ativo') == true) {
+                imgSound.setAttribute('class', 'des');
+                imgMute.setAttribute('class', 'ativo');
+                audio.muted = true;
+            }
+        })
+        
+        imgMute.addEventListener('click', function(){
+            if(imgMute.classList.contains('ativo') == true) {
+                imgSound.setAttribute('class', 'ativo');
+                imgMute.setAttribute('class', 'des');
+                audio.muted = false;
+            }
+        })
+        
+        var imgSeta = document.getElementById('seta');
+        var menuAbas = document.getElementById('menuAbas');
+
+        imgSeta.addEventListener('click', function(){
+            if (menuAbas.classList.contains('aberto') == true & imgSeta.classList.contains('aberto') == true) {
+                menuAbas.removeAttribute('class');
+                imgSeta.removeAttribute('class');
+            }
+            else {
+                menuAbas.setAttribute('class', 'aberto');
+                imgSeta.setAttribute('class', 'aberto');
+            }
+        })
+    </script>
+</body>
+</html>
